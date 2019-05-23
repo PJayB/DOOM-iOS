@@ -276,7 +276,7 @@ extern int    skyflatnum;
 extern  int        maketic;
 
 // Networking and tick handling related.
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 #define BACKUPTICS              16		// JDC: changed from 12 to 16 to allow and masking instead of mod 
 #define BACKUPTICMASK			(BACKUPTICS-1)	// JDC
 #else

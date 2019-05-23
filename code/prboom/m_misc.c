@@ -325,7 +325,7 @@ default_t defaults[] =
   {"use_doublebuffer",{&use_doublebuffer},{1},0,1,             // proff 2001-7-4
    def_bool,ss_none}, // enable doublebuffer to avoid display tearing (fullscreen)
 #endif
-#ifdef IPHONE	// JDC, don't waste time builing the tables at startup
+#if defined(IPHONE) || defined(LINUX)	// JDC, don't waste time builing the tables at startup
 {"translucency",{&default_translucency},{0},0,1,   // phares
 def_bool,ss_none}, // enables translucency
 #else

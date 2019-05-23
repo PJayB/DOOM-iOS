@@ -95,7 +95,6 @@
 #define PACKEDATTR __attribute__((packed))
 
 #define MACOSX
-#define HAVE_LIBKERN_OSBYTEORDER_H
 #define HAVE_OWN_MUSIC
 #define UPDATE_MUSIC
 #define SCREENSHOT_DIR I_DoomExeDir()

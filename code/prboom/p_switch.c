@@ -418,7 +418,7 @@ P_UseSpecialLine
         S_StartSound(thing, sfx_noway);
         return false;
       }
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 		  // disable level switch with timelimit or fraglimit
 		  extern boolean levelTimer;
 		  extern boolean levelFragLimit;

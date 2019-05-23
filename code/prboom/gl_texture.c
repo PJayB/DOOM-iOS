@@ -589,7 +589,7 @@ void gld_BindTexture(GLTexture *gltexture)
 	  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, gl_tex_filter);
 	  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, gl_tex_filter);
-#ifdef IPHONE			// JDC, convert the texture to 16 bit and mipmap
+#if defined(IPHONE) || defined(LINUX)
 	  gld_UploadAndMip32BitTexture( gltexture->buffer_width, gltexture->buffer_height, buffer);
 #else
     {
@@ -723,7 +723,7 @@ void gld_BindPatch(GLTexture *gltexture, int cm)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, gl_tex_filter);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, gl_tex_filter);
-#ifdef IPHONE			// JDC, convert the texture to 16 bit and mipmap
+#if defined(IPHONE) || defined(LINUX)
 	  gld_UploadAndMip32BitTexture( gltexture->buffer_width, gltexture->buffer_height, buffer);
 #else
 	{
@@ -874,7 +874,7 @@ void gld_BindFlat(GLTexture *gltexture)
 	  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, gl_tex_filter);
 	  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, gl_tex_filter);
-#ifdef IPHONE			// JDC, convert the texture to 16 bit and mipmap
+#if defined(IPHONE) || defined(LINUX)
 		gld_UploadAndMip32BitTexture( gltexture->buffer_width, gltexture->buffer_height, buffer);
 #else
 	  {

@@ -605,7 +605,7 @@ void A_FirePlasma(player_t *player, pspdef_t *psp)
 
 static fixed_t bulletslope;
 
-#ifdef IPHONE // add some auto-aim to compensate for the touch screen controls 
+#if defined(IPHONE) || defined(LINUX) // add some auto-aim to compensate for the touch screen controls 
 
 static angle_t autoAimAngle;
 
@@ -663,7 +663,7 @@ static void P_GunShot(mobj_t *mo, boolean accurate)
 {
   int damage = 5*(P_Random(pr_gunshot)%3+1);
   angle_t angle = mo->angle;
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 	if ( !demoplayback ) {
 		angle = autoAimAngle;
 	}

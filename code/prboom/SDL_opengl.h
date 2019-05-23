@@ -11,8 +11,13 @@
 #ifndef __SDL_OPENGL_H__
 #define __SDL_OPENGL_H__
 
+#ifdef OPENGL_ES
 #include <OpenGLES/ES1/gl.h>
 #include <OpenGLES/ES1/glext.h>
+#else
+#include <GL/gl.h>
+#include <GL/glext.h>
+#endif
 
 #define GLAPIENTRY
 
@@ -30,13 +35,17 @@ static void SDL_GL_SwapBuffers() {}
 void glBegin( GLenum prim );
 
 void glVertex3f( GLfloat x, GLfloat y, GLfloat z );
+#ifdef OPENGL_ES
 void glVertex3fv( GLfloat *xyz );
+#endif
 void glVertex2f( GLfloat x, GLfloat y );
 void glVertex2i( GLint x, GLint y );
 
 void glTexCoord2i( GLint s, GLint t );
 void glTexCoord2f( GLfloat s, GLfloat t );
+#ifdef OPENGL_ES
 void glTexCoord2fv( GLfloat *st );
+#endif
 
 void glEnd();
 
@@ -85,8 +94,10 @@ typedef double GLdouble;
 #define GL_RGBA2	GL_RGBA
 
 // not available in ES, so prBoom's skies must be implemeted differently
+#ifdef OPENGL_ES
 static void glTexGenfv( int a, int b, void *c ) { };
 static void glTexGenf( int a, int b, int c ) { };
+#endif
 
 // texGen enums not present in ES
 #define GL_S					0x2000

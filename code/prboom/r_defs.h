@@ -153,7 +153,7 @@ typedef struct
   short special;
   short oldspecial;      //jff 2/16/98 remembers if sector WAS secret (automap)
   short tag;
-#ifdef IPHONE		// JDC: high performance renderer
+#if defined(IPHONE) || defined(LINUX)		// JDC: high performance renderer
 	// floors and ceiling have identical index count, but reference different verts
 	int	numIndexes;		
 	int numVerts;
@@ -208,7 +208,7 @@ struct side_s	// JDC: moved typedef for forward reference
   // for other functions.
 
   int special;
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 	seg_t	sideSeg;	// This segment stretches the entire length of the line,
 						// even if the line was broken into multiple seg_t by
 						// the bsp.

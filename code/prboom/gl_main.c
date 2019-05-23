@@ -611,7 +611,7 @@ void gld_DrawWeapon(int weaponlump, vissprite_t *vis, int lightlevel)
   scale=((float)vis->scale/(float)FRACUNIT);
   y1=viewwindowy+centery-(int)(((float)vis->texturemid/(float)FRACUNIT)*scale);
   y2=y1+(int)((float)gltexture->realtexheight*scale)+1;
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 	// don't do the gamma table correction on the lighting
   light=lightlevel * (1.0/255);
 	// some of the sprites come one line off the bottom of the screen
@@ -2018,7 +2018,7 @@ void gld_EndDrawScene(void)
     glEnd();
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   }
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 	// when taking screenshots, we usually don't want the blend
 	extern float *noBlend;	// its actually a cvar, but the value is the first element
 	if ( *noBlend == 1 ) {
@@ -2888,7 +2888,7 @@ void gld_DrawScene(player_t *player)
 
 void gld_PreprocessLevel(void)
 {
-#ifdef IPHONE	
+#if defined(IPHONE) || defined(LINUX)
 	// defeer precache until after the first frame is drawn, so
 	// we get something in front of the user ASAP
 	extern int iphoneFrameNum;

@@ -87,7 +87,7 @@ typedef struct
 		float skyyaw;
 		GLTexture *gltexture;
 		byte flag;
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 		side_t	*side;
 #endif
 	} GLWall;

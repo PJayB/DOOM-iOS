@@ -1384,7 +1384,7 @@ void G_DoCompleted (void)
 
   WI_Start (&wminfo);
 	
-#ifdef IPHONE
+#if defined(IPHONE) || defined(LINUX)
 	iphoneIntermission( &wminfo );
 #endif
 }

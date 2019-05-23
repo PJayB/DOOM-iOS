@@ -1579,7 +1579,7 @@ void AM_Drawer (void)
   AM_drawPlayers();
   if (ddt_cheating==2)
     AM_drawThings(); //jff 1/5/98 default double IDDT sprite
-#ifdef IPHONE		
+#if defined(IPHONE) || defined(LINUX)
 	glColor4f( 1, 1, 1, 1 );	// without the crosshair, colors can get left incorre3ctly set
 	iphoneSet2D();		// JDC: not sure why this is necessary, but the status bar doesn't draw without it
 #else 	// JDC: I don't like the croshair on the map screen
